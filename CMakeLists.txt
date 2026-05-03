@@ -18,6 +18,8 @@ add_executable(${PROJECT_NAME}
         src/ui/mainwindow.cpp
         src/ui/mainwindow.h
         src/ui/mainwindow.ui
+        src/core/wallet/Transaction.h
+        src/core/wallet/Transaction.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

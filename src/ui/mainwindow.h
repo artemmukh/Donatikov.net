@@ -1,6 +1,3 @@
-//
-// Created by user on 03.05.2026.
-//
 
 #ifndef README_MD_MAINWINDOW_H
 #define README_MD_MAINWINDOW_H
@@ -29,4 +26,4 @@ private:
 };
 
 
-#endif //README_MD_MAINWINDOW_H
+#endif
