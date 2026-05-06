@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <ctime>
+#include "core\auth\User.h"
 
 enum class TransactionType { //this is used for the quick access to the type of operation
     TopUp,  //used with struct interaction
@@ -8,15 +10,17 @@ enum class TransactionType { //this is used for the quick access to the type of 
     MobileTopUp
 };
 
-struct Transaction {
-    int id; //transaction id
-    int userId; //user id
-    TransactionType type; //type of it (look to the enum)
-    double amount; //money amount
+class Transaction {
+public:
+    int id{0};//transacrion
+    int userId{0}; //user id for searching in repository .dat
+    TransactionType type{0}; //type of it (look to the enum)
+    double amount{0}; //money amount
     std::string description; //description of the operation
-    std::string date;   //date of operation
+    char operationDate[15]{};   //date of operation
+    void setCurrentDate();
 };
-//struct will handle the input from the user in the qt interface
+//class will handle the input from the user in the qt interface
 //when data is entered fully it will be converted to structs and passed to the appropriate functions and classes
 
 //example
@@ -24,7 +28,7 @@ struct Transaction {
 
 //Transaction t;
 //t.id = ...;
-//t.userId = currentUser.id;
+//t.userId = user_obj.id;
 //t.type = TransactionType::TopUp;
 //t.amount = 50.0;
 //t.description = "Wallet top-up";

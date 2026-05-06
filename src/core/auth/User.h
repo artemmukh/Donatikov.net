@@ -10,7 +10,7 @@ class User {
     int id{0}; //initialization in case of errors or UB
     char name[32]{};
     char password[16]{};
-    double balance{0.0};
+    double balance{0};
 
     friend class AuthManager; //this is for password access
 
@@ -33,8 +33,8 @@ class User {
 
     //getters
     int getId() const;
-    std::string getName() const;
     double getBalance() const;
+    std::string getName() const;
     //we don't need getPassword as it not needed for writing to binary
     //and it is never displayed elsewhere
 };
