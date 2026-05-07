@@ -9,28 +9,29 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-file(GLOB_RECURSE SOURCES src/*.cpp)
-file(GLOB_RECURSE HEADERS src/*.h)
-
 add_executable(${PROJECT_NAME}
-        ${SOURCES}
-        ${HEADERS}
-        src/ui/mainwindow.cpp
-        src/ui/mainwindow.h
-        src/ui/mainwindow.ui
-        src/core/auth/User.cpp
-        src/core/auth/User.h
-        src/core/auth/AuthManager.cpp
-        src/core/auth/AuthManager.h
-        src/data/UserRepository.cpp
-        src/data/UserRepository.h
-        src/core/services/GameService.cpp
+    src/main.cpp
+
+    src/ui/mainwindow.cpp
+    src/ui/mainwindow.h
+    src/ui/mainwindow.ui
+
+    src/core/auth/User.cpp
+    src/core/auth/User.h
+    src/core/auth/AuthManager.cpp
+    src/core/auth/AuthManager.h
+
+    src/core/services/GameService.cpp
+    src/core/services/GameService.h
+
+    src/data/UserRepository.cpp
+    src/data/UserRepository.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-        ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/src
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-        Qt6::Widgets
+    Qt6::Widgets
 )
