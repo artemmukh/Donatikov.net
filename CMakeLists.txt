@@ -15,14 +15,17 @@ add_executable(${PROJECT_NAME}
     src/ui/mainwindow.cpp
     src/ui/mainwindow.h
     src/ui/mainwindow.ui
+    src/ui/login.ui
 
     src/core/auth/User.cpp
     src/core/auth/User.h
     src/core/auth/AuthManager.cpp
     src/core/auth/AuthManager.h
 
-    src/core/services/GameService.cpp
-    src/core/services/GameService.h
+    src/core/wallet/Transaction.cpp
+    src/core/wallet/Transaction.h
+    src/core/wallet/Wallet.cpp
+    src/core/wallet/Wallet.h
 
     src/data/UserRepository.cpp
     src/data/UserRepository.h
