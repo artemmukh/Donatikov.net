@@ -15,7 +15,6 @@ add_executable(${PROJECT_NAME}
     src/ui/mainwindow.cpp
     src/ui/mainwindow.h
     src/ui/mainwindow.ui
-    src/ui/login.ui
 
     src/core/auth/User.cpp
     src/core/auth/User.h
