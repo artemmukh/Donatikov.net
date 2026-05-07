@@ -10,7 +10,7 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(${PROJECT_NAME}
-    src/main.cpp
+    src/ui/main.cpp
 
     src/ui/mainwindow.cpp
     src/ui/mainwindow.h
