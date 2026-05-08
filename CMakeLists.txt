@@ -31,6 +31,10 @@ set(SOURCES
     src/ui/profilewindow.h
     src/ui/profilewindow.ui
 
+    src/ui/aboutuswindow.cpp
+    src/ui/aboutuswindow.h
+    src/ui/aboutuswindow.ui
+
     src/core/wallet/Transaction.cpp
     src/core/wallet/Transaction.h
     src/core/wallet/Wallet.cpp

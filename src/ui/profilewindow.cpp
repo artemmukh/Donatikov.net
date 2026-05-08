@@ -1,5 +1,7 @@
 #include "profilewindow.h"
 #include "dashboardscreen.h"
+#include "aboutuswindow.h"
+#include <QMessageBox>
 
 profilewindow::profilewindow(QWidget *parent)
 	: QMainWindow(parent)
@@ -19,5 +21,12 @@ void profilewindow::on_toolButtonBack_clicked() {
 void profilewindow::on_pushButtonChangeName_clicked() {}
 void profilewindow::on_pushButtonChangePassword_clicked() {}
 void profilewindow::on_pushButtonNotifications_clicked() {}
-void profilewindow::on_pushButtonHelp_clicked() {}
-void profilewindow::on_pushButtonAbout_clicked(){}
+void profilewindow::on_pushButtonHelp_clicked() {
+	QMessageBox::information(this, "Help", "For help you can contact us by number +9981234567 or by email donatikov.net@gmail.com");
+
+}
+void profilewindow::on_pushButtonAbout_clicked(){
+	aboutuswindow* aboutus = new aboutuswindow(this);
+	aboutus->show();
+	this->hide();
+}
