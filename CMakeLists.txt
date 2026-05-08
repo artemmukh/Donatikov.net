@@ -23,8 +23,6 @@ add_executable(${PROJECT_NAME}
 
     src/core/wallet/Transaction.cpp
     src/core/wallet/Transaction.h
-    src/core/wallet/Wallet.cpp
-    src/core/wallet/Wallet.h
 
     src/data/UserRepository.cpp
     src/data/UserRepository.h

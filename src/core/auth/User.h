@@ -4,9 +4,11 @@
 #include <cstddef>
 #include <string>
 #include <cstring>
-#include "AuthManager.h"
+
+class AuthManager;
 
 class User {
+    friend class AuthManager;
     int id{0}; //initialization in case of errors or UB
     char name[32]{};
     char password[16]{};
