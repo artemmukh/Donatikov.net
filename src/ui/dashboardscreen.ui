@@ -61,18 +61,6 @@ NAME</string>
               </property>
              </spacer>
             </item>
-            <item>
-             <widget class="QLabel" name="label_15">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Balance: 2000 UZS</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item>
@@ -276,7 +264,7 @@ NAME</string>
                </font>
               </property>
               <property name="text">
-               <string>Search</string>
+               <string>Service</string>
               </property>
              </widget>
             </item>
