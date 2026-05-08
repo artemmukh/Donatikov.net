@@ -1,29 +1,21 @@
+#pragma once
 
-#ifndef README_MD_MAINWINDOW_H
-#define README_MD_MAINWINDOW_H
+#include <QMainWindow>
+#include "ui_mainwindow.h"
 
-#include <QWidget>
-
-
-QT_BEGIN_NAMESPACE
-
-namespace Ui {
-    class MainWindow;
-}
-
-QT_END_NAMESPACE
-
-class MainWindow : public QWidget {
-    Q_OBJECT
+class mainwindow : public QMainWindow
+{
+	Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+	mainwindow(QWidget *parent = nullptr);
+	~mainwindow();
 
-    ~MainWindow() override;
+private slots:
+	void on_pushButtonSignIn_clicked();
+	void on_pushButtonLogIn_clicked();
 
 private:
-    Ui::MainWindow *ui;
+	Ui::mainwindowClass ui;
 };
 
-
-#endif
