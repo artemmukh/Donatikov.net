@@ -1,12 +1,13 @@
 #include "loginwindow.h"
 #include "mainwindow.h"
 #include <QMessageBox>
+#include "dashboardscreen.h"
 
 loginwindow::loginwindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-}
+}	
 
 loginwindow::~loginwindow()
 {}
@@ -30,4 +31,7 @@ void loginwindow::on_pushButtonLogIn_clicked() {
 		QMessageBox::critical(this, "Error", "Passwords should match!");
 		return;
 	}
+	dashboardscreen* dashboard = new dashboardscreen(this);
+	dashboard->show();
+	this->hide();
 }

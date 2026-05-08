@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QMessageBox>
 #include "loginwindow.h"
+#include "dashboardscreen.h"
 
 mainwindow::mainwindow(QWidget *parent)
 	: QMainWindow(parent)
@@ -19,7 +20,9 @@ void mainwindow::on_pushButtonSignIn_clicked() {
 	}//validating for empty fields
 
 	if (ui.lineEditUsername->text() == "1" and ui.lineEditPassword->text() == "1") {//TODO: написать логику логина
-		QMessageBox::critical(this, "test", "test!");
+		dashboardscreen* dashboard = new dashboardscreen(this);
+		dashboard->show();
+		this->hide();
 		
 	}//check for right user
 }

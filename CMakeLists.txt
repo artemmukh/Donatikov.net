@@ -23,6 +23,14 @@ set(SOURCES
     src/ui/loginwindow.h
     src/ui/loginwindow.ui
 
+    src/ui/dashboardscreen.cpp
+    src/ui/dashboardscreen.h
+    src/ui/dashboardscreen.ui
+
+    src/ui/profilewindow.cpp
+    src/ui/profilewindow.h
+    src/ui/profilewindow.ui
+
     src/core/wallet/Transaction.cpp
     src/core/wallet/Transaction.h
     src/core/wallet/Wallet.cpp

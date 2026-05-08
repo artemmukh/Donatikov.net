@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>491</height>
+    <width>812</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,6 +52,7 @@
             <property name="font">
              <font>
               <pointsize>24</pointsize>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -64,6 +65,7 @@
             <property name="font">
              <font>
               <pointsize>12</pointsize>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -121,6 +123,12 @@
         </item>
         <item>
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>Username</string>
           </property>
@@ -195,6 +203,12 @@
         </item>
         <item>
          <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>Password</string>
           </property>
@@ -282,6 +296,17 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButtonSignIn">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Sign in</string>
           </property>
