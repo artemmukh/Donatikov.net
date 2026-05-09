@@ -6,7 +6,6 @@ User:: User(int ID, const char* Name, const char* Password, double Balance):User
     this->setId(ID);
     this->setName(Name);
     this->setPassword(Password);
-    this->setBalance(Balance);
 }
 
 //setters implementation
@@ -42,12 +41,6 @@ void User::setPassword(const char* P) {
     this->password[i] = '\0';
 }
 
-void User::setBalance(double B) {
-    if (B < 0) {
-        throw std::invalid_argument("Balance cannot be negative");
-    }
-    this->balance = B;
-}
 
 //getter implementation
 
@@ -60,6 +53,17 @@ std::string User::getName() const {
 }
 
 
-double User::getBalance() const {
-    return this->balance;
+void User::setBalance(double Balance) {
+
+    if (Balance < 0) {
+        throw std::invalid_argument("Balance cannot be negative");
+    }
+    this->balance = Balance;
 }
+
+
+
+double User::getBalance() const {
+    return balance;
+}
+

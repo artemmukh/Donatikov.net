@@ -59,11 +59,20 @@ set(SOURCES
     src/core/wallet/Transaction.h
     src/core/wallet/Wallet.cpp
     src/core/wallet/Wallet.h
+add_executable(${PROJECT_NAME}
+    src/ui/main.cpp
+
+    src/ui/mainwindow.cpp
+    src/ui/mainwindow.h
+    src/ui/mainwindow.ui
 
     src/core/auth/User.cpp
     src/core/auth/User.h
     src/core/auth/AuthManager.cpp
     src/core/auth/AuthManager.h
+
+    src/core/wallet/Transaction.cpp
+    src/core/wallet/Transaction.h
 
     src/data/UserRepository.cpp
     src/data/UserRepository.h
@@ -77,4 +86,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
+)
 )
