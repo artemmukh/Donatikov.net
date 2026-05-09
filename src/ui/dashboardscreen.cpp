@@ -1,6 +1,7 @@
 #include "dashboardscreen.h"
 #include "profilewindow.h"
 #include "topupscreen.h"
+#include "sendmoneyscreen.h"
 
 dashboardscreen::dashboardscreen(QWidget *parent)
 	: QMainWindow(parent)
@@ -12,6 +13,9 @@ dashboardscreen::~dashboardscreen()
 {}
 
 void dashboardscreen::on_pushButtonSend_clicked() {
+	sendmoneyscreen* sendmoney = new sendmoneyscreen(this);
+	sendmoney->show();
+	this->hide();
 
 }
 void dashboardscreen::on_pushButtonTopUp_clicked() {

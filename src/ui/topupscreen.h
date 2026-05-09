@@ -18,7 +18,7 @@ private slots:
 	void on_pushButton5_clicked();
 	void on_pushButtonTopUp_clicked();
 	void on_toolButtonBack_clicked();
-	
+	void on_comboBoxCards_currentIndexChanged(int index);
 
 private:
 	Ui::topupscreenClass ui;

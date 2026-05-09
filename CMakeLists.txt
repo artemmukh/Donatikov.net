@@ -39,6 +39,14 @@ set(SOURCES
     src/ui/topupscreen.h
     src/ui/topupscreen.ui
 
+    src/ui/notificationscreen.cpp
+    src/ui/notificationscreen.h
+    src/ui/notificationscreen.ui
+
+    src/ui/sendmoneyscreen.cpp
+    src/ui/sendmoneyscreen.h
+    src/ui/sendmoneyscreen.ui
+
     src/core/wallet/Transaction.cpp
     src/core/wallet/Transaction.h
     src/core/wallet/Wallet.cpp

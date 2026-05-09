@@ -16,3 +16,5 @@ void aboutuswindow::on_toolButtonBack_clicked() {
 	this->hide();
 }
 
+
+
