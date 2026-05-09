@@ -47,6 +47,14 @@ set(SOURCES
     src/ui/sendmoneyscreen.h
     src/ui/sendmoneyscreen.ui
 
+    src/ui/newnamewindow.cpp
+    src/ui/newnamewindow.h
+    src/ui/newnamewindow.ui
+
+    src/ui/newpasswordwindow.cpp
+    src/ui/newpasswordwindow.h
+    src/ui/newpasswordwindow.ui
+
     src/core/wallet/Transaction.cpp
     src/core/wallet/Transaction.h
     src/core/wallet/Wallet.cpp

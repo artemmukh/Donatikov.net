@@ -2,7 +2,8 @@
 #include "dashboardscreen.h"
 #include "aboutuswindow.h"
 #include "notificationscreen.h"
-
+#include "newpasswordwindow.h"
+#include "newnamewindow.h"
 #include <QMessageBox>
 
 profilewindow::profilewindow(QWidget *parent)
@@ -20,8 +21,17 @@ void profilewindow::on_toolButtonBack_clicked() {
 	this->hide();
 	
 }
-void profilewindow::on_pushButtonChangeName_clicked() {}
-void profilewindow::on_pushButtonChangePassword_clicked() {}
+void profilewindow::on_pushButtonChangeName_clicked() {
+	newnamewindow* newname = new newnamewindow(this);
+	newname->show();
+	this->hide();
+
+}
+void profilewindow::on_pushButtonChangePassword_clicked() {
+	newpasswordwindow* newpassword = new newpasswordwindow(this);
+	newpassword->show();
+	this->hide();
+}
 void profilewindow::on_pushButtonNotifications_clicked() {
 	notificationscreen* notification = new notificationscreen(this);
 	notification->show();
