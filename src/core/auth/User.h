@@ -4,15 +4,19 @@
 #include <cstddef>
 #include <string>
 #include <cstring>
-
 class AuthManager;
 
 class User {
+    //friend class is used to access private members
     friend class AuthManager;
+
     int id{0}; //initialization in case of errors or UB
     char name[32]{};
     char password[16]{};
     double balance{0};
+    char email[32]{};
+    unsigned long long credit_card{0};
+
 
     friend class AuthManager; //this is for password access
 
@@ -20,7 +24,12 @@ class User {
     //rule of 3 (if one constructor is overloaded then rest of them must be overloaded too)
     User() = default;
     //explicit to restrict conversion
-    explicit User(int ID, const char* Name, const char* Password, double Balance);
+
+
+    explicit User(int ID, const char* Name,
+        const char* Password, double Balance, const char* e, unsigned long long card);
+
+
 
     //why need to implement when we don't need to user1 = user2 it is pointless
     User(const User& other) = default;
@@ -28,15 +37,26 @@ class User {
     ~User() = default;
 
     //setters
+    void setCardNumber(unsigned long long card);
     void setId(int ID);
     void setName(const char* N);
     void setPassword(const char* P);
     void setBalance(double Balance);
+    void setEmail(const char *e);
 
     //getters
     int getId() const;
     double getBalance() const;
+    std::string getEmail() const;
     std::string getName() const;
+    std::string getMaskedCardNumber() const;
     //we don't need getPassword as it not needed for writing to binary
     //and it is never displayed elsewhere
+
+
+    void withdraw(double amount);
+    void deposit(double amount);
+
+    void updateName(const char* newName);
+    void updatePassword(const char* newPassword);
 };

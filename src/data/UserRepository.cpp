@@ -23,7 +23,9 @@ User UserRepository::findUser(const char* name) {
     User temp; //temporary object for reading
     while (file_in.read(reinterpret_cast<char*>(&temp), sizeof(User)))
         //read till the end of the file
-        {if (std::strcmp(temp.getName().c_str(), name) == 0) {
+        {if (std::strcmp(temp.getName().c_str(), name) == 0)
+            //.c_ctr() compares 2 strings (in this case the one from the file and the argument, == 0 means success)
+            {
             return temp;  //go through the file until find certain name then return the obj
         } //strcmp compare the strings
     }

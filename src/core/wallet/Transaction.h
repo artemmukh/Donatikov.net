@@ -3,21 +3,27 @@
 #include <ctime>
 #include "core\auth\User.h"
 
-enum class TransactionType { //this is used for the quick access to the type of operation
-    TopUp,  //used with struct interaction
+enum class TransactionType {
+    //using enum instead of char[] saves space (4 bytes vs 32 bytes)
+    //and makes comparisons cleaner, no strcmp needed
+    TopUp,
     GamePurchase,
     Subscription,
-    MobileTopUp
+    MobileTopUp,
+    MoneySend
 };
+
 
 class Transaction {
 public:
     int id{0};//transacrion
     int userId{0}; //user id for searching in repository .dat
-    TransactionType type{0}; //type of it (look to the enum)
+    TransactionType type{0}; //type of it: top-up or subscription
     double amount{0}; //money amount
     std::string description; //description of the operation
     char operationDate[15]{};   //date of operation
+
+
     void setCurrentDate();
 };
 //class will handle the input from the user in the qt interface
