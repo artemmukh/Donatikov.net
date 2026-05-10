@@ -3,10 +3,17 @@
 #include <QMessageBox>
 #include "dashboardscreen.h"
 
+#include <QRegularExpressionValidator>
+
 loginwindow::loginwindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	QRegularExpression emailValidator(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");//validation for email
+	QRegularExpressionValidator* validator = new QRegularExpressionValidator(emailValidator, this);
+	ui.lineEditEmail->setValidator(validator);
+	
+	
 }	
 
 loginwindow::~loginwindow()
