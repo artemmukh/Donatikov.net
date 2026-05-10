@@ -40,7 +40,7 @@ We are a team of students collaborating on the architecture, logic, and UI of th
 
 ### Prerequisites
 To build and run this project, you need:
-* **Qt 6.x** (or 5.15+) installed via Qt Online Installer.
+* **Qt 6.11.0** (or 5.15+) installed via Qt Online Installer.
 * **CMake 3.14+**.
 * A C++ compiler (MSVC, MinGW, or GCC).
 
