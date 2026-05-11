@@ -63,6 +63,7 @@ add_executable(${PROJECT_NAME}
         src/ui/subscriptionwindow.ui
 
         src/core/auth/User.cpp
+
         src/core/auth/User.h
         src/core/auth/AuthManager.cpp
         src/core/auth/AuthManager.h
@@ -75,14 +76,20 @@ add_executable(${PROJECT_NAME}
 
         src/core/services/IService.h
         src/core/services/IService.cpp
-        src/core/services/MobileTopUpService.cpp
-        src/core/services/MobileTopUpService.h
-        src/core/services/SubscriptionService.h
-        src/core/services/SubscriptionService.cpp
-        src/core/services/MoneySend.cpp
-        src/core/services/MoneySend.h
-        src/core/services/GameService.h
-        src/core/services/GameService.cpp
+
+            src/core/services/MobileTopUpService.cpp
+            src/core/services/MobileTopUpService.h
+
+             src/core/services/SubscriptionService.h
+             src/core/services/SubscriptionService.cpp
+
+             src/core/services/MoneySend.cpp
+             src/core/services/MoneySend.h
+
+             src/core/services/GameService.h
+             src/core/services/GameService.cpp
+        src/data/TransactionRepository.cpp
+        src/data/TransactionRepository.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

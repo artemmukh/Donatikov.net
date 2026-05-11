@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <stdexcept>
+#include "core/wallet/Transaction.h"
+
 class User;
 class IService {
     protected:
@@ -20,6 +22,6 @@ class IService {
 
     //pure virtual methods (abstract base class: no objects can be created)
     virtual std::string printInfo() const = 0; //description of service
-    virtual void execute(User &user) const = 0; //do top up, withdrawal etc
+    virtual void execute(User &user) = 0; //do top up, withdrawal etc
 
 };

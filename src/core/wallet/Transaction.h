@@ -20,7 +20,7 @@ public:
     int userId{0}; //user id for searching in repository .dat
     TransactionType type{0}; //type of it: top-up or subscription
     double amount{0}; //money amount
-    std::string description; //description of the operation
+    char description[64]{}; //description of the operation
     char operationDate[15]{};   //date of operation
 
 

@@ -10,5 +10,5 @@ class UserRepository {
     static void saveUser(User& user); //writing data from widgets to the file
     static User findUser(const char* name);//searching
     static void deleteUser(int id);
-    static void updateUser(User user);
+    static void updateUser(User& user);
 };
