@@ -2,6 +2,7 @@
 #include "profilewindow.h"
 #include "topupscreen.h"
 #include "sendmoneyscreen.h"
+#include "servicewindow.h"
 
 dashboardscreen::dashboardscreen(QWidget *parent)
 	: QMainWindow(parent)
@@ -23,8 +24,10 @@ void dashboardscreen::on_pushButtonTopUp_clicked() {
 	topup->show();
 	this->hide();
 }
-void dashboardscreen::on_pushButtonSearch_clicked() {
-
+void dashboardscreen::on_pushButtonSearch_clicked() {//todo
+	servicewindow* service = new servicewindow(this);
+	service->show();
+	this->hide();
 }
 void dashboardscreen::on_pushButtonProfile_clicked() {
 	profilewindow* profile = new profilewindow(this);

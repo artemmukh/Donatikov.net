@@ -7,7 +7,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.11.0/mingw_64")
+set(CMAKE_PREFIX_PATH "C:/Qt/6.11.0/msvc2022_64")
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
@@ -54,6 +54,14 @@ add_executable(${PROJECT_NAME}
         src/ui/newpasswordwindow.h
         src/ui/newpasswordwindow.ui
 
+        src/ui/servicewindow.cpp
+        src/ui/servicewindow.h
+        src/ui/servicewindow.ui
+
+        src/ui/subscriptionwindow.cpp
+        src/ui/subscriptionwindow.h
+        src/ui/subscriptionwindow.ui
+
         src/core/auth/User.cpp
         src/core/auth/User.h
         src/core/auth/AuthManager.cpp
@@ -79,6 +87,7 @@ add_executable(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+       
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
