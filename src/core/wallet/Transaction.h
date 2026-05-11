@@ -2,6 +2,9 @@
 #include <string>
 #include <ctime>
 #include "core\auth\User.h"
+#include <stdexcept>
+#include <cstring>
+
 
 enum class TransactionType {
     //using enum instead of char[] saves space (4 bytes vs 32 bytes)
@@ -17,13 +20,14 @@ enum class TransactionType {
 class Transaction {
 public:
     int id{0};//transacrion
-    int userId{0}; //user id for searching in repository .dat
-    TransactionType type{0}; //type of it: top-up or subscription
+    char username[17]{}; //user id (login) for searching in repository .dat
+    TransactionType type{}; //type of it: top-up or subscription
     double amount{0}; //money amount
     char description[64]{}; //description of the operation
     char operationDate[15]{};   //date of operation
 
 
+    void setUsername(const char* U);
     void setCurrentDate();
 };
 //class will handle the input from the user in the qt interface

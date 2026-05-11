@@ -2,9 +2,9 @@
 #include "User.h"
 
 
-User:: User(int ID, const char* Name, const char* Password, double Balance, const char* e, unsigned long long card)
+User:: User(const char* U, const char* Name, const char* Password, double Balance, const char* e, unsigned long long card)
 :User() {
-    this->setId(ID);
+    this->setUser(U);
     this->setName(Name);
     this->setPassword(Password);
     this->setBalance(Balance);
@@ -14,15 +14,23 @@ User:: User(int ID, const char* Name, const char* Password, double Balance, cons
 
 
 //setters implementation
-void User::setId(int ID) {
-    if (ID < 0 || ID > 999) {
-        throw std::invalid_argument("Invalid ID, must be 0-999");
+//user (login/username)
+void User::setUser(const char* U) {
+    if (U == nullptr || U[0] == '\0') { //if nothing entered
+        throw std::invalid_argument("Invalid or empty user");
     }
-    this->id = ID;
+    if (std::strlen(U) >= sizeof(username)) { //if user is out of bounds
+        throw std::invalid_argument("User is too long");
+    }
+    std::size_t i = 0;
+    for (; i < sizeof(username) - 1 && U[i] != '\0'; ++i) {
+        username[i] = U[i];
+    }
+    username[i] = '\0'; //this writing stops at the length of the user
 }
 
-int User::getId() const {
-    return id;
+std::string User::getUser() const {
+    return std::string(username);
 }
 
 
@@ -38,7 +46,7 @@ void User::setName(const char* N) {
     for (; i < sizeof(name) - 1 && N[i] != '\0'; ++i) {
         name[i] = N[i];
     }
-    name[i] = '\0'; //this writing stops at the length of the name 
+    name[i] = '\0'; //this writing stops at the length of the name
 }
 
 std::string User::getName() const {

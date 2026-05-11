@@ -35,7 +35,7 @@ void SubscriptionService::execute(User &user) {
 
     Transaction t_sub; //creating transaction object to write data to the transaction repository
     t_sub.id = 0;
-    t_sub.userId = user.getId();
+    t_sub.setUsername(user.getUser().c_str());
     t_sub.type = TransactionType::Subscription;
     t_sub.amount = getPrice();
 

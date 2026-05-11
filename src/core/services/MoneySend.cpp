@@ -32,7 +32,10 @@ void MoneySend::execute(User &user) {
 
     Transaction t_money; //creating transaction object to write data to the transaction repository
     t_money.id = 0;
-    t_money.userId = user.getId();
+    t_money.setUsername(user.getUser().c_str());
+
+    //we write (copy) from user::username to transaction::username to write to transaction file
+
     t_money.type = TransactionType::MoneySend;
     t_money.amount = getPrice();
 
@@ -43,8 +46,9 @@ void MoneySend::execute(User &user) {
     std::snprintf(t_money.description, sizeof(t_money.description),
         "Money on card - %llu", recipient_card_number); //this writes the information about transaction
 
-    t_money.setCurrentDate();
 
+    t_money.setCurrentDate();
+    
     //TransactionRepository repo;
     //repo.save(t);
 }

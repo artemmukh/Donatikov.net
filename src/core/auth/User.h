@@ -10,7 +10,7 @@ class User {
     //friend class is used to access private members
     friend class AuthManager;
 
-    int id{0}; //initialization in case of errors or UB
+    char username[17]{}; //initialization in case of errors or UB
     char name[32]{};
     char password[16]{};
     double balance{0};
@@ -26,7 +26,7 @@ class User {
     //explicit to restrict conversion
 
 
-    explicit User(int ID, const char* Name,
+    explicit User(const char* User, const char* Name,
         const char* Password, double Balance, const char* e, unsigned long long card);
 
 
@@ -38,14 +38,14 @@ class User {
 
     //setters
     void setCardNumber(unsigned long long card);
-    void setId(int ID);
+    void setUser(const char* U);
     void setName(const char* N);
     void setPassword(const char* P);
     void setBalance(double Balance);
     void setEmail(const char *e);
 
     //getters
-    int getId() const;
+    std::string getUser() const;
     double getBalance() const;
     std::string getEmail() const;
     std::string getName() const;
