@@ -1,6 +1,3 @@
-//
-// Created by user on 05.05.2026.
-//
 
 #include "UserRepository.h"
 void UserRepository::saveUser(User& user) {
@@ -12,9 +9,9 @@ void UserRepository::saveUser(User& user) {
     file_out.close();
 }
 
-User UserRepository::findUser(const char* name) {
-    if (name == nullptr || name[0] == '\0') {
-        throw std::invalid_argument("Invalid name");
+User UserRepository::findUser(const char* UN) {
+    if (UN == nullptr || UN[0] == '\0') {
+        throw std::invalid_argument("Invalid username");
     }
     std::ifstream file_in("user_data.dat", std::ios::binary);
     if (!file_in.is_open()) {
@@ -23,13 +20,13 @@ User UserRepository::findUser(const char* name) {
     User temp; //temporary object for reading
     while (file_in.read(reinterpret_cast<char*>(&temp), sizeof(User)))
         //read till the end of the file
-        {if (std::strcmp(temp.getName().c_str(), name) == 0)
-            //.c_ctr() compares 2 strings (in this case the one from the file and the argument, == 0 means success)
+        {if (std::strcmp(temp.getUser().c_str(), UN) == 0)
+            //srtcmp() compares 2 strings (in this case the one from the file and the argument, == 0 means success)
             {
             return temp;  //go through the file until find certain name then return the obj
         } //strcmp compare the strings
     }
-    throw std::runtime_error("User not found");
+    throw std::runtime_error("Username not found");
 }
 
 void UserRepository::deleteUser(const char* UN) {
