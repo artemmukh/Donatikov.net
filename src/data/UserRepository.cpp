@@ -32,7 +32,7 @@ User UserRepository::findUser(const char* name) {
     throw std::runtime_error("User not found");
 }
 
-void UserRepository::deleteUser(int id) {
+void UserRepository::deleteUser(const char* UN) {
 
 }
 
