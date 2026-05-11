@@ -17,3 +17,12 @@ void SubscriptionService::setSubscriptionDuration(int SubDuration) {
 int SubscriptionService::getSubscriptionDuration() const {
     return subscription_duration_day;
 }
+
+
+std::string SubscriptionService::printInfo() const {
+    return "";
+}
+
+
+
+void SubscriptionService::execute(User &user) const {}

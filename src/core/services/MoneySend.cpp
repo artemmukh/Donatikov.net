@@ -18,3 +18,9 @@ void MoneySend::setRecipientCardNumber(unsigned long long card) {
 unsigned long long MoneySend::getRecipientCardNumber() const {
     return recipient_card_number;
 }
+
+std::string MoneySend::printInfo() const {
+    return "";
+}
+
+void MoneySend::execute(User &user) const {}

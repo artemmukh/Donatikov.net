@@ -19,10 +19,10 @@ int MobileTopUpService::getMobileNumber() const {
 }
 
 
-void MobileTopUpService::execute() const {
+void MobileTopUpService::execute(User &user) const {
 
 }
 
-QString MobileTopUpService::printInfo() const {
-    return QString("Mobile number top-up: %1").arg(mobile_number);
+std::string MobileTopUpService::printInfo() const {
+    return "";
 }
