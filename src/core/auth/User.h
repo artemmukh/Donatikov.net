@@ -7,18 +7,17 @@
 class AuthManager;
 
 class User {
-    //friend class is used to access private members
-    friend class AuthManager;
+
 
     char username[17]{}; //initialization in case of errors or UB
     char name[32]{};
+    int id{000};
     char password[16]{};
     double balance{0};
     char email[32]{};
     unsigned long long credit_card{0};
 
 
-    friend class AuthManager; //this is for password access
 
     public:
     //rule of 3 (if one constructor is overloaded then rest of them must be overloaded too)
@@ -26,7 +25,7 @@ class User {
     //explicit to restrict conversion
 
 
-    explicit User(const char* User, const char* Name,
+    explicit User(const char* User, const char* Name, int ID,
         const char* Password, double Balance, const char* e, unsigned long long card);
 
 
@@ -43,8 +42,10 @@ class User {
     void setPassword(const char* P);
     void setBalance(double Balance);
     void setEmail(const char *e);
+    void setId(int ID);
 
     //getters
+    int getId() const;
     std::string getUser() const;
     double getBalance() const;
     std::string getEmail() const;
@@ -56,6 +57,7 @@ class User {
 
     void withdraw(double amount);
     void deposit(double amount);
+    bool checkPassword(const char* P) const; //this is for auth manager password access
 
     void updateName(const char* newName);
     void updatePassword(const char* newPassword);

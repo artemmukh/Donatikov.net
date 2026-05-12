@@ -17,7 +17,7 @@ void GameService::execute(User &user) {
 
     Transaction t_game; //creating transaction object to write data to the transaction repository
     t_game.id = 0;
-
+    t_game.user_id = user.getId();
     t_game.setUsername(user.getUser().c_str());
     //we write (copy) from user::username to transaction::username to write to transaction file
 

@@ -32,6 +32,7 @@ void MoneySend::execute(User &user) {
 
     Transaction t_money; //creating transaction object to write data to the transaction repository
     t_money.id = 0;
+    t_money.user_id = user.getId();
     t_money.setUsername(user.getUser().c_str());
 
     //we write (copy) from user::username to transaction::username to write to transaction file

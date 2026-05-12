@@ -20,6 +20,7 @@ enum class TransactionType {
 class Transaction {
 public:
     int id{0};//transacrion
+    int user_id{000};
     char username[17]{}; //user id (login) for searching in repository .dat
     TransactionType type{}; //type of it: top-up or subscription
     double amount{0}; //money amount

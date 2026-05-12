@@ -1,17 +1,16 @@
 #pragma once
-#include <iostream>
 #include <stdexcept>
 #include <cstddef>
 #include <string>
 #include <cstring>
 #include "User.h"
+#include "data/UserRepository.h"
 class AuthManager {
-    static User user; //current logged user data
+    User current_user; //current logged user data
     public:
     AuthManager() = default;
 
-    static bool login(const char* name, const char* password);
-    static bool registerUser(const char* name, const char* password);
-    static void logout();
-    static bool isLoggedIn();
+    bool login(const char* userName, const char* password);
+    static bool registerUser(const char* name, const char* e, const char* userName, const char* password);
+     void logout();
 };

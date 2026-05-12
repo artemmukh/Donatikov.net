@@ -6,33 +6,57 @@ void UserRepository::saveUser(User& user) {
         throw std::runtime_error("Failed to open file");
     }
     file_out.write(reinterpret_cast<char*>(&user), sizeof(user));//writing data
+    file_out.flush();
     file_out.close();
 }
 
-User UserRepository::findUser(const char* UN) {
-    if (UN == nullptr || UN[0] == '\0') {
-        throw std::invalid_argument("Invalid username");
-    }
-    std::ifstream file_in("user_data.dat", std::ios::binary);
+User UserRepository::findUser(int ID) {
+    std::ifstream file_in("user_data.dat", std::ios::binary | std::ios::ate);
     if (!file_in.is_open()) {
         throw std::runtime_error("Failed to open file");
     }
-    User temp; //temporary object for reading
-    while (file_in.read(reinterpret_cast<char*>(&temp), sizeof(User)))
-        //read till the end of the file
-        {if (std::strcmp(temp.getUser().c_str(), UN) == 0)
-            //srtcmp() compares 2 strings (in this case the one from the file and the argument, == 0 means success)
-            {
-            return temp;  //go through the file until find certain name then return the obj
-        } //strcmp compare the strings
+    if (file_in.tellg() == 0) {
+        throw std::invalid_argument("Empty file");
     }
-    throw std::runtime_error("Username not found");
+    file_in.clear();//always reset errors
+    User user;
+    file_in.seekg(0, std::ios::beg);//set pointer to 0 byte pos
+    while (file_in.read(reinterpret_cast<char*>(&user), sizeof(User))) {
+        if (user.getId() == ID) {
+            file_in.close();
+            return user;
+        } //read through the file, compare by IDs and return found object
+    }
+    throw std::invalid_argument("ID not found");
+
 }
 
-void UserRepository::deleteUser(const char* UN) {
+void UserRepository::deleteUser(int id) {
+    std::fstream file("user_data.dat", std::ios::in | std::ios:: out | std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file");
+    }
+    if (file.tellg() == 0) {
+        throw std::invalid_argument("Empty file");
+    }
+    file.clear();//always reset errors
+    User user;
+    file.seekg(0, std::ios::beg);
+    while (file.read(reinterpret_cast<char*>(&user), sizeof(User))) {
+        if (user.getId() == id) {
+            file.seekp(static_cast<std::streamoff>(id - 1) * sizeof(User), std::ios::beg);
+            user = User();
+            file.write(reinterpret_cast<char *>(&user), sizeof(User));
+            file.flush();
+            file.close();
+            return;
 
+            ;
+        }
+    }
+    file.close();
+    throw std::invalid_argument("ID not found");
 }
 
-void UserRepository::updateUser(User& user) {
-
+User UserRepository::updateUser(User& user) {
 }

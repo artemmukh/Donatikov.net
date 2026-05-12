@@ -2,7 +2,7 @@
 #include "User.h"
 
 
-User:: User(const char* U, const char* Name, const char* Password, double Balance, const char* e, unsigned long long card)
+User:: User(const char* U, const char* Name, int ID, const char* Password, double Balance, const char* e, unsigned long long card)
 :User() {
     this->setUser(U);
     this->setName(Name);
@@ -10,6 +10,7 @@ User:: User(const char* U, const char* Name, const char* Password, double Balanc
     this->setBalance(Balance);
     this->setEmail(e);
     this->setCardNumber(card);
+    this->setId(ID);
 }
 
 
@@ -65,6 +66,22 @@ void User::setPassword(const char* P) {
     }
     this->password[i] = '\0';
 }
+
+
+void User::setId(int ID) {
+    if (ID < 0) {
+        throw std::invalid_argument("Invalid ID");
+    }
+    else {
+        this->id = ID;
+    }
+}
+
+
+int User::getId() const {
+    return this->id;
+}
+
 
 
 //email
@@ -132,5 +149,9 @@ void User::updateName(const char *newName) {
 
 void User::updatePassword(const char *newPassword) {
     setPassword(newPassword);
+}
+
+bool User::checkPassword(const char *P) const {
+    return std::strcmp(P, password) == 0;
 }
 
