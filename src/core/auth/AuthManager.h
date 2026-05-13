@@ -12,5 +12,5 @@ class AuthManager {
 
     bool login(const char* userName, const char* password);
     static bool registerUser(const char* name, const char* e, const char* userName, const char* password);
-     void logout();
+    void logout();
 };

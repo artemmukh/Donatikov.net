@@ -36,7 +36,7 @@ void MobileTopUpService::execute(User &user) {
     t_mobile.user_id = user.getId();
     t_mobile.setUsername(user.getUser().c_str());
     //we write (copy) from user::username to transaction::username to write to transaction file
-
+    t_mobile.status = false;
     t_mobile.type = TransactionType::MobileTopUp;
     t_mobile.amount = getPrice();
 

@@ -30,9 +30,9 @@ class User {
 
 
 
-    //why need to implement when we don't need to user1 = user2 it is pointless
+    //deep copy will be useful when we update user data, for example new username
     User(const User& other) = default;
-    User& operator=(const User& other) = default;
+    User& operator=(const User& other);
     ~User() = default;
 
     //setters

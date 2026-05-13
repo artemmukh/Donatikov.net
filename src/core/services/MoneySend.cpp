@@ -36,7 +36,7 @@ void MoneySend::execute(User &user) {
     t_money.setUsername(user.getUser().c_str());
 
     //we write (copy) from user::username to transaction::username to write to transaction file
-
+    t_money.status = false;
     t_money.type = TransactionType::MoneySend;
     t_money.amount = getPrice();
 

@@ -13,6 +13,20 @@ User:: User(const char* U, const char* Name, int ID, const char* Password, doubl
     this->setId(ID);
 }
 
+User &User::operator=(const User &other) {
+    if (this == &other) {
+        return *this;
+    }
+    std::strcpy(this->username, other.username);
+    std::strcpy(this->name, other.name);
+    this->id = other.id;
+    std::strcpy(this->password, other.password);
+    this->balance = other.balance;
+    std::strcpy(this->email, other.email);
+    this->credit_card = other.credit_card;
+    return *this;
+}
+
 
 //setters implementation
 //user (login/username)

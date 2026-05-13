@@ -20,7 +20,7 @@ void GameService::execute(User &user) {
     t_game.user_id = user.getId();
     t_game.setUsername(user.getUser().c_str());
     //we write (copy) from user::username to transaction::username to write to transaction file
-
+    t_game.status = false;
     t_game.type = TransactionType::GamePurchase;
     t_game.amount = getPrice();
 

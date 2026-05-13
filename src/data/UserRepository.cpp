@@ -58,5 +58,27 @@ void UserRepository::deleteUser(int id) {
     throw std::invalid_argument("ID not found");
 }
 
-User UserRepository::updateUser(User& user) {
+User UserRepository::updateUser(User& user_updated, int id) {
+    std::fstream file("user_data.dat", std::ios::in | std::ios::out | std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file");
+    }
+    if (file.tellg() == 0) {
+        throw std::invalid_argument("Empty file");
+    }
+    file.clear();
+    User user;
+    file.seekg(0, std::ios::beg);
+    while (file.read(reinterpret_cast<char*>(&user), sizeof(User))) {
+        if (user.getId() == id) {
+            user = user_updated;
+            file.seekp(static_cast<std::streamoff>(id - 1) * sizeof(User), std::ios::beg);
+            file.write(reinterpret_cast<char*>(&user), sizeof(User));
+            file.flush();
+            file.close();
+            return user_updated;
+        }
+    }
+    file.close();
+    throw std::invalid_argument("ID not found");
 }

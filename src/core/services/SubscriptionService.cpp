@@ -37,6 +37,7 @@ void SubscriptionService::execute(User &user) {
     t_sub.id = 0;
     t_sub.user_id = user.getId();
     t_sub.setUsername(user.getUser().c_str());
+    t_sub.status = false;
     t_sub.type = TransactionType::Subscription;
     t_sub.amount = getPrice();
 
