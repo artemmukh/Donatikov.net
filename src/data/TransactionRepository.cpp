@@ -14,6 +14,7 @@ bool TransactionRepository::saveTransaction(Transaction &user_t) {
     file.write(reinterpret_cast<char*>(&user_t), sizeof(Transaction));
     file.flush();
     file.close();
+    return true;
 }
 
 Transaction TransactionRepository::findTransaction(int transaction_id) {

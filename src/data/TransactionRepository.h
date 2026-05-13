@@ -6,7 +6,7 @@ class TransactionRepository {
     TransactionRepository() = default;
     ~TransactionRepository() = default;
     static bool saveTransaction(Transaction &user_t);
-    Transaction findTransaction(int transaction_id);
-    bool deleteTransaction(int transaction_id);
+    static Transaction findTransaction(int transaction_id);
+    static bool deleteTransaction(int transaction_id);
     std::vector<Transaction> getUserTransactions(int user_id);
 };
